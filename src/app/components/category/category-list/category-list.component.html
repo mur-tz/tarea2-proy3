@@ -1,0 +1,48 @@
+<div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (category of categoryList; track $index) {
+            <tr>
+              <th scope="row">{{category.id}}</th>
+              <td>{{category.name}}</td>
+              <td>{{category.description}}</td>
+              <td>
+                <button type="button" (click)="showDetailModal(category, detailModal)" class="btn btn-secondary">
+                    <i class = "fa-solid fa-eye white"
+                    ></i>
+                </button>
+                <button 
+                type="button"
+                (click)="deleteCategory(category);" 
+                class="btn btn-danger">
+                <i class="fa-solid fa-trash white"
+                ></i>
+              </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="8" class="text-center">There are not items to show</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-modal #detailModal>
+    <app-category-form
+        [category]="selectedCategory"
+        [action]="'Update Category'"
+        (callParentEvent)="handleFormAction($event)"
+    />
+  </app-modal>

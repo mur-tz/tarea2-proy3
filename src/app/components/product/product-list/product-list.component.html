@@ -1,0 +1,46 @@
+<div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock Quantity</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (product of productsList; track $index) {
+            <tr>
+              <th scope="row">{{product.id}}</th>
+              <td>{{product.name}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.qtyInStock}}</td>
+              <td>{{product.category}}</td>
+              <td>
+                <button type="button" (click)="showDetail(product, detailModal)" class="btn btn-secondary">
+                    <i class = "fa-solid fa-eye white"
+                    ></i>
+                </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="8" class="text-center">There are not items to show</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-modal #detailModal>
+    <app-product-form
+        [product]="selectedProduct"
+    />
+  </app-modal>

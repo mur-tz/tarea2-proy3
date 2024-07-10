@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <label for="id">Id</label>
+            <input #url="ngModel" type="text" class="form-control" id="id" name="id"
+            placeholder="Id"
+            [(ngModel)]="product.id"
+            [ngClass]="{
+                'is-invalid': url.invalid && url.touched,
+                'is-valid': url.valid && url.touched
+            }"
+            required
+            />
+        </div>
+        <div class="col-6 mb-2">
+            <label for="name">Name</label>
+            <input #name="ngModel" type="text" class="form-control" id="name" name="name"
+            placeholder="Name"
+            [(ngModel)]="product.name"
+            [ngClass]="{
+                'is-invalid': name.invalid && name.touched,
+                'is-valid': name.valid && name.touched
+            }"
+            required
+            />
+        </div>
+        <div class="col-6 mb-2">
+            <label for="description">Description</label>
+            <input #description="ngModel" type="text" class="form-control" id="description" name="description"
+            placeholder="Description"
+            [(ngModel)]="product.description"
+            [ngClass]="{
+                'is-invalid': description.invalid && description.touched,
+                'is-valid': description.valid && description.touched
+            }"
+            required
+            />
+        </div>
+        <div class="col-6">
+            <label for="price">Price</label>
+            <input #url="ngModel" type="text" class="form-control" id="price" name="price"
+            placeholder="price"
+            [(ngModel)]="product.price"
+            [ngClass]="{
+                'is-invalid': url.invalid && url.touched,
+                'is-valid': url.valid && url.touched
+            }"
+            required
+            />
+        </div>
+         <div class="col-6"> <!-- Agregar aquí el componente de categoria -->
+            <label for="stock">Stock Quantity</label>
+            <input #url="ngModel" type="text" class="form-control" id="stock" name="stock"
+            placeholder="image url"
+            [(ngModel)]="product.qtyInStock"
+            [ngClass]="{
+                'is-invalid': url.invalid && url.touched,
+                'is-valid': url.valid && url.touched
+            }"
+            required
+            />
+        </div>
+        <!-- <div class="col-6">
+            <label for="category">Category</label>
+            <input #url="ngModel" type="text" class="form-control" id="category" name="category"
+            placeholder="category"
+            [(ngModel)]="getCatId(product)"
+            [ngClass]="{
+                'is-invalid': url.invalid && url.touched,
+                'is-valid': url.valid && url.touched
+            }"
+            required
+            />
+        </div> -->
+        <!-- <div class="col-6">
+            <button
+            (click)="callEvent();"
+            type="button"
+            class="btn btn-primary d-flex align-items-center">
+            <p class="mb-0"> {{action}} </p>
+            </button>
+        </div> -->
+    </div>
+</div>
