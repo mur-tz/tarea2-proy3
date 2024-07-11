@@ -7,6 +7,7 @@ import { CategoryService } from '../../services/category.service';
 import { CategoryFormComponent } from '../../components/category/category-form/category-form.component';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-category',
@@ -15,7 +16,8 @@ import { AuthService } from '../../services/auth.service';
     CategoryListComponent,
     LoaderComponent,
     ModalComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    CommonModule
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'

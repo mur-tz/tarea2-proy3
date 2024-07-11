@@ -6,7 +6,7 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
-            <th scope="col">Actions</th>
+            <th *ngIf="areActionsAvailable" scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
               <th scope="row">{{category.id}}</th>
               <td>{{category.name}}</td>
               <td>{{category.description}}</td>
-              <td>
+              <td *ngIf="areActionsAvailable">
                 <button type="button" (click)="showDetailModal(category, detailModal)" class="btn btn-secondary">
                     <i class = "fa-solid fa-eye white"
                     ></i>

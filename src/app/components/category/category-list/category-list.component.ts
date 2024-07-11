@@ -3,13 +3,15 @@ import { CategoryFormComponent } from '../category-form/category-form.component'
 import { ModalComponent } from '../../modal/modal.component';
 import { ICategory } from '../../../interfaces';
 import { CategoryService } from '../../../services/category.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-category-list',
   standalone: true,
   imports: [
     CategoryFormComponent,
-    ModalComponent
+    ModalComponent,
+    CommonModule
   ],
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.scss'

@@ -28,7 +28,7 @@ export class GameListComponent implements OnChanges{
       console.log('areActionsAvailable', this.areActionsAvailable);
     }
   }
-  
+
   showDetailModal(item: IGame, modal: any) {
     this.selectedItem = {...item}
     modal.show();

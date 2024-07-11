@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { IProduct } from '../../../interfaces';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ICategory, IProduct } from '../../../interfaces';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-product-form',
@@ -15,4 +16,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductFormComponent {
   @Input() product: IProduct = {};
+  @Input() categoryList: ICategory[] = [];
+  @Input() action = '';
+  @Output() callParentEvent: EventEmitter<IProduct> = new EventEmitter<IProduct>();
+
+  callEvent(){
+    this.callParentEvent.emit(this.product);
+  }
+
 }

@@ -9,24 +9,32 @@
             <th scope="col">Price</th>
             <th scope="col">Stock Quantity</th>
             <th scope="col">Category</th>
-            <th scope="col">Actions</th>
+            <th *ngIf="areActionsAvailable" scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
           @for (product of productsList; track $index) {
             <tr>
-              <th scope="row">{{product.id}}</th>
+              <td>{{product.id}}</td>
               <td>{{product.name}}</td>
-              <td>{{product.description}}</td>
               <td>{{product.description}}</td>
               <td>{{product.price}}</td>
               <td>{{product.qtyInStock}}</td>
-              <td>{{product.category}}</td>
-              <td>
-                <button type="button" (click)="showDetail(product, detailModal)" class="btn btn-secondary">
+              <td>{{product.category?.name}}</td>
+              <td *ngIf="areActionsAvailable">
+                <button type="button" 
+                (click)="showDetailModal(product, detailModal)"
+                class="btn btn-secondary">
                     <i class = "fa-solid fa-eye white"
                     ></i>
                 </button>
+                <button 
+                type="button"
+                (click)="deleteProduct(product);" 
+                class="btn btn-danger">
+                <i class="fa-solid fa-trash white"
+                ></i>
+              </button>
               </td>
             </tr>
           } @empty {
@@ -39,8 +47,11 @@
     </div>
   </div>
 
-  <app-modal #detailModal>
-    <app-product-form
-        [product]="selectedProduct"
+<app-modal #detailModal>
+  <app-product-form
+      [product]="selectedProduct"
+      [categoryList]="categoryService.categories$()"
+      [action]="'Update product'"
+      (callParentEvent)="handleFormAction($event)"
     />
-  </app-modal>
+</app-modal>
