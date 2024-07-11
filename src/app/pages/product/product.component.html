@@ -4,7 +4,7 @@
     </div>
     <div>
       @defer {
-        <div class="d-flex justify-content-end pb-2" *ngIf="!areActionsAvailable">
+        <div class="d-flex justify-content-end pb-2" *ngIf="areActionsAvailable">
           <button type="button"
           (click)="addModal.show()"
           class="btn btn-primary d-flex align-items-center">
@@ -14,6 +14,7 @@
         </div>
         <app-product-list
         [productsList]="productService.products$()"
+        [areActionsAvailable]="areActionsAvailable"
         />
       } @loading (after 100ms; minimum 1s){
         <app-loader></app-loader>

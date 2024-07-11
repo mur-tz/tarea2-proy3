@@ -10,7 +10,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { GamesComponent } from './pages/games/games.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CategoryComponent } from './pages/category/category.component';
 
@@ -78,18 +77,6 @@ export const routes: Routes = [
           ],
           showInSidebar: false,
           name: 'profile'
-        }
-      },
-      {
-        path: 'games',
-        component: GamesComponent,
-        data: {
-          authorities: [
-            IRoleType.superAdmin,
-            IRoleType.user
-          ],
-          showInSidebar: true,
-          name: 'games'
         }
       },
       {
