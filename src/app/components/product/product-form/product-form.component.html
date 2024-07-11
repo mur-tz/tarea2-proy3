@@ -38,7 +38,7 @@
         </div>
         <div class="col-6">
             <label for="price">Price</label>
-            <input #url="ngModel" type="text" class="form-control" id="price" name="price"
+            <input #url="ngModel" type="number" class="form-control" id="price" name="price"
             placeholder="price"
             [(ngModel)]="product.price"
             [ngClass]="{
@@ -50,7 +50,7 @@
         </div>
          <div class="col-6"> <!-- Agregar aquí el componente de categoria -->
             <label for="stock">Stock Quantity</label>
-            <input #url="ngModel" type="text" class="form-control" id="stock" name="stock"
+            <input #url="ngModel" type="number" class="form-control" id="stock" name="stock"
             placeholder="image url"
             [(ngModel)]="product.qtyInStock"
             [ngClass]="{
@@ -83,7 +83,6 @@
         <div class="col-6">
             <select [(ngModel)]="product.category" name="category" id="category">
                 <option *ngFor="let category of categoryList" [ngValue]="category"
-                [value]="product.category?.id"
                 [attr.selected]="product.category?.id==category.id ? true: null">
                     {{category.name}}
                 </option>
